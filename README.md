@@ -29,3 +29,6 @@ python3 asst.py
 
 # Usage
 You can input multiple voice commands. The assistant requires an active internet connection in order to be able to search the internet for results.
+
+## Footnotes
+If you wish to have any features added, or changed, feel free to mantion the same in the Issues page of the repository.
