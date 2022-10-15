@@ -8,8 +8,13 @@ python3 -m venv env
 ```
 
 And then activate the environment:
+For a Macintosh operating system:
 ```
 source env/bin/activate
+```
+For a Windows operating system:
+```
+env\Scripts\activate
 ```
 
 Once you have done this, you need to install the modules required. For this:
@@ -21,3 +26,6 @@ In the end, run the main file to bring up your assistant!
 ```
 python3 asst.py
 ```
+
+# Usage
+You can input multiple voice commands. The assistant requires an active internet connection in order to be able to search the internet for results.

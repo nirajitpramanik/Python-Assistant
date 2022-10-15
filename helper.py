@@ -63,14 +63,25 @@ def check_question(question):
     elif question.lower() == "what time is it":
         answer = check_time()
         return answer
-    elif ("search wiki" or "search wikipedia") in question.lower():
-        query = question.split("wiki")[1].strip()
+    elif ("wiki" or "wikipedia") in question.lower():
+        query = question.lower().split("wiki")[1].strip()
         if query.lower().startswith("pedia"):
             query = query[5:].strip()
 
-        result = wikipedia.summary(query, sentences=4)
-        speak("According to wikipedia")
+        check = wikipedia.search(query)        
+        page_object = wikipedia.page(title = check[0], auto_suggest= False)
+        result = wikipedia.summary(check[0], sentences = 2, auto_suggest = False)
         speak(result)
+        return "Wikipedia", page_object.url
+
+    elif ("youtube") in question.lower():
+        query = question.lower().split("youtube")[1].strip()
+        s = ""
+        question = query.split()
+        for word in question:
+            s += f"{word}+"
+        url = f"https://www.youtube.com/results?search_query={s}"
+        return "Youtube", url
 
     else:
         query = ""
